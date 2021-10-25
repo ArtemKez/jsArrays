@@ -168,15 +168,15 @@ console.log(twoNums([1, 2, 3, 6, 4, 5, 5, 2, 1]))
 
 console.log('Заполните массив 10 случайными числами в диапазоне от 15 до 78. Math.random()')
 
-function mathRandom() {
+function mathRandom(max, min) {
     let arr = [];
     while (arr.length < 10) {
-        arr.push(Math.round(Math.random() * 63 + 15))
+        arr.push(Math.round(Math.random() * max - min + min))
     }
     return arr;
 }
 
-console.log(mathRandom())
+console.log(mathRandom(78,15))
 
 console.log('Дан массив 4, -2, 5, 19, -130, 0, 10. Найдите минимальное и максимальное число. ')
 
@@ -192,6 +192,9 @@ console.log(mathMaxMin([4, -2, 5, 19, -130, 0, 10]))
 console.log('Дан массив arr. Найдите среднее арифметическое его элементов. Проверьте задачу на массиве с элементами 12, 15, 20, 25, 59, 79.')
 
 function srAr(arr) {
+    if (arr.length === 0) {
+        return 0
+    }
     let arrSum = 0;
     const len = arr.length
     for (let i = 0; i < len; i++) {
